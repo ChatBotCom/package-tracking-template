@@ -1,0 +1,9 @@
+{
+    "token": "YOUR_WEBHOOK_TOKEN",
+    "ups": {
+        "url": "https://onlinetools.ups.com/rest/Track",
+        "username": "YOUR_USERNAME",
+        "password": "YOUR_PASSWORD",
+        "accessKey": "YOUR_ACCESS_KEY"
+    }
+}
