@@ -1,4 +1,4 @@
-# Package Tracking Bot template
+# Package Tracking Bot
 
 This example was written in Javascript and requires Node.js, but you can rewrite this code to any other server-side language you want.
 
