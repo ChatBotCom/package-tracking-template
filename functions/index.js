@@ -150,20 +150,25 @@ router
             return res.sendStatus(401);
         }
 
-        const action = req.body.result.interaction.action;
+        req.version = req.body.result ? 1 : 2;
+
+        const action = req.version === 1 ?
+            req.body.result.interaction.action : req.body.attributes.action;
 
         if (['track-order'].includes(action)) {
             req.url = `/${action}`;
             return next();
         }
-
         res.json();
     });
 
 router
     .route('/track-order')
     .post(async (req, res) => {
-        const { trackingNumber } = req.body.result.sessionParameters;
+        const sessionParameters = req.version === 1 ?
+            req.body.result.sessionParameters : req.body.attributes;
+
+        const { trackingNumber } = sessionParameters;
 
         let parameters = {
             trackingNumber
